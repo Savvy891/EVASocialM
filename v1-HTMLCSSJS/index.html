@@ -3,38 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>EVA Social</title>
 </head>
 <body>
     <!-- aside, nav, header-->
-     <aside>
+     <aside class="nav">
         <!-- img, heading, tags -->
          <a href="index.html"><img src="evalogo.png" alt="EVA IT CS Logo" height="100"></a>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="terms-and-agreement.html"> Terms and Agreement</a></li>
-            <li><a href="contact.html">Contact Us</li>
+            <li><a href="contact.html">Contact Us</a></li>
         </ul>
      </aside>
-     <main>
+     <main style="width: 70%;">
         <section id="status-form">
             <form action="" method="post">
-                <label for="status-post">Status: </label>
-                <input type="text" id="status-post">
-                <label for="username">Username: </label>
-                <input type="text" id="username">
-                <button type="submit">Post</button>
+                <div id="status-text-box">
+                    <label for="status-post">Status: </label>
+                    <input type="text" id="status-post">
+                </div>
+                <div id="status-username-submit">
+                    <div>
+                        <label for="username">Username: </label>
+                        <input type="text" id="username">
+                    </div>
+                    <button type="submit">Post</button>
+                </div>
             </form>
         </section>
         <section id="status-data">
             <div>
-                <p>Billybobjoe</p>
                 <br>
+                <p>Billybobjoe</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta voluptates omnis quos nesciunt eaque laborum dolore expedita? Quia itaque maxime amet iure impedit reprehenderit iste. Vero ut amet magni qui.</p>
             </div>
             <div>
-                <p>Malcom L</p>
                 <br>
+                <p>Malcom L</p>
                 <P>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis doloribus
                     possimus amet error saepe! Iusto aliquam fuga obcaecati dolores quaerat
@@ -42,12 +49,20 @@
                 </P>
             </div>
             <div>
-                <p>Savannah A</p>
                 <br>
+                <p>Savannah A</p>
                 <P>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste necessitatibus corrupti atque consequatur laborum eligendi quisquam dolorem officiis, sed sit quod, rerum suscipit laudantium. Neque vero rem fuga a eum?</P>
             </div>
-            <div></div>
-            <div></div>
+            <div>
+                <br>
+                <p> Michael Clifford </p>
+                <p>coding pun... Blah blah Blah</p>
+            </div>
+            <div>
+                <br>
+                <p>MC hammer</p>
+                <p>Coding time do do do do do do do do coding time </p>
+            </div>
         </section>
      </main>
 </body>
