@@ -10,7 +10,9 @@
     <!-- aside, nav, header-->
      <aside class="nav">
         <!-- img, heading, tags -->
-         <a href="index.html"><img src="evalogo.png" alt="EVA IT CS Logo" height="100"></a>
+         <a href="index.html">
+            <img src="evalogo.png" alt="EVA IT CS Logo" height="100">
+        </a>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="terms-and-agreement.html"> Terms and Agreement</a></li>
@@ -19,7 +21,7 @@
      </aside>
      <main style="width: 70%;">
         <section id="status-form">
-            <form action="" method="post">
+            <form onsubmit="postStatus(event)" method="post">
                 <div id="status-text-box">
                     <label for="status-post">Status: </label>
                     <input type="text" id="status-post">
@@ -65,5 +67,6 @@
             </div>
         </section>
      </main>
+     <script src="script.js"></script>
 </body>
 </html>

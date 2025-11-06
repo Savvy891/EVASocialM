@@ -1,0 +1,29 @@
+.nav-term-of-agreements {
+   /*position: sticky; */
+    height: 100vh;
+    width: 50vh;
+    background-image: linear-gradient(to bottom, #000529 1%,#002055 24%, #005db5 67%, #0074d9 100%);
+    padding: 1rem;
+    ul {
+        padding: 0%;}
+
+    li, a {
+    color: white;
+    text-decoration: none;
+}
+}
+header, h1 {
+    text-align: center;
+    color: #002055;
+}
+main {
+    ul {
+        padding-left: 6rem;
+    }
+    h3{
+        padding-left: 2rem;
+    }
+    p{
+        padding-left: 3rem;
+    }
+}
