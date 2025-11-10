@@ -67,7 +67,8 @@ function viewPosts(){
         const statusRow = document.createElement("div");
         const id = post.length - 1 - idx;
         statusRow.innerHTML = `<p>${post.username}</p><p>${post.status}</p><br><button onclick="deletePost(${id})
-        ">Delete</buttin>`;
+        ">Delete</button>
+        <button onclick="viewComments(${id})">View Comments</button>`;
         statusData.appendChild(statusRow);
     });
 }
@@ -90,6 +91,14 @@ const getFromLocalStorage = () =>{
     posts.push(post); 
     }); 
 }
+//comment section
+function viewComments(){
+    
+}
 
+// end of connent section
+// like and dislike section
+
+// end of dislike section
 document.addEventListener("DOMContentLoaded", getFromLocalStorage);
 document.addEventListener("DOMContentLoaded", viewPosts);
