@@ -24,6 +24,11 @@ public class Post  extends Object {
     public Post() {}
     // Parameterized Constructor
     public Post(String status, String username) {
+        if(status.isBlank()){
+            throw new IllegalArgumentException("Status can't be blank or empty!");
+        }
+        if(username.isBlank())
+            throw new IllegalArgumentException("Username can't be black or empty!");
         this.id = idCounter++;
         this.status = status;
         this.username = username;
@@ -56,6 +61,9 @@ public class Post  extends Object {
     }
 
     public void setStatus(String status) {
+        if(status.isBlank()){
+            throw new IllegalArgumentException("Status can't be blank or empty!");
+        }
         this.status = status;
     }
 
@@ -64,6 +72,8 @@ public class Post  extends Object {
     }
 
     public void setUsername(String username) {
+        if(username.isBlank())
+            throw new IllegalArgumentException("Username can't be blank or empty!");
         this.username = username;
     }
 

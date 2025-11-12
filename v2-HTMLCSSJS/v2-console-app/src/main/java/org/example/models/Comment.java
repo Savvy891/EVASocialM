@@ -49,6 +49,8 @@ public class Comment {
     }
 
     public void setComments(Comment[] comments) {
+        if(comment.isBlank())
+            throw new IllegalArgumentException("Comments can't be blank or empty!");
         this.comments = comments;
     }
 
@@ -97,6 +99,8 @@ public class Comment {
     }
 
     public void setUsername(String username) {
+        if(username.isBlank())
+            throw new IllegalArgumentException("Username can't be black or empty!");
         this.username = username;
     }
 
