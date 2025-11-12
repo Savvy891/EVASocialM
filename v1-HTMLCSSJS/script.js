@@ -63,22 +63,42 @@ function postStatus(e) {
 function viewPosts(){
     const statusData = document.getElementById("status-data");
     statusData.innerHTML = "";
-    posts.slice().reverse().forEach(post => {
+    posts.slice().reverse().forEach((post, idx) => {
         const statusRow = document.createElement("div");
-        statusRow.innerHTML = `<p>${post.username}</p><p>${post.status}</p><br>`;
+        const id = post.length - 1 - idx;
+        statusRow.innerHTML = `<p>${post.username}</p><p>${post.status}</p><br><button onclick="deletePost(${id})
+        ">Delete</button>
+        <button onclick="viewComments(${id})">View Comments</button>`;
         statusData.appendChild(statusRow);
     });
 }
+
+const deletPost = function (id){
+    posts.splice(id, 1);
+    saveToLocalStorage();
+    viewPosts();
+
+
+}
+
 const saveToLocalStorage = () => {
     localStorage.setItem("statusPosts", JSON.stringify(posts));
 }
 const getFromLocalStorage = () =>{
     if (localStorage.getItem("statusPosts") === null) return;
     posts.length = 0;
-    JSON.parse(localStorage.getItem("statusPost")).forEach (post => {
+    JSON.parse(localStorage.getItem("statusPosts")).forEach(post => {
     posts.push(post); 
     }); 
 }
+//comment section
+function viewComments(){
+    
+}
 
+// end of connent section
+// like and dislike section
+
+// end of dislike section
 document.addEventListener("DOMContentLoaded", getFromLocalStorage);
 document.addEventListener("DOMContentLoaded", viewPosts);
