@@ -2,6 +2,7 @@ package org.example.services;
 
 import org.example.dtos.PostInformation;
 import org.example.dtos.PostNewPostRequest;
+import org.example.exceptions.PostNotFoundException;
 import org.example.models.Post;
 import org.example.repositories.PostRepository;
 import org.example.utils.mapper.PostMapper;
@@ -70,5 +71,11 @@ public class PostService {
      */
     public List<PostInformation> findAllByUsername(String username) {
         return postRepository.findAllByUsername(username).stream().map(PostMapper::toDto).toList();
+    }
+
+    public boolean deletePostById(long id) {
+        postRepository.findById(id).orElseThrow(() ->
+                new PostNotFoundException("Post with id of " + id + " not found!"));
+        return postRepository.deleteById(id);
     }
 }

@@ -18,7 +18,7 @@ public class PostController {
     /**
      * Ask the user for a status and username, create a new post and show the
      * created post information. This action will create a draft post (see
-     * {@link com.horrorcore.models.Post}) which can be finalized later.
+     * {"@link org.example.models.Post"}) which can be finalized later.
      */
     public void postStatus() {
         System.out.println("Please input your status!");
@@ -50,6 +50,17 @@ public class PostController {
         System.out.println("Please enter an id to final a post");
         int choice = scanner.nextInt();
         postService.changeDraftStatus(choice);
+    }
+
+    public void deletePostPrompt() {
+        System.out.println("Please enter your username");
+        String username = scanner.nextLine();
+        postService.findAllByUsername(username).forEach(System.out::println);
+        System.out.println("pleae enter a id to delete post");
+        int choice = scanner.nextInt();
+        postService.deletePostById(choice);
+
+
     }
 }
 

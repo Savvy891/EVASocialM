@@ -21,10 +21,11 @@ public class View {
 
     public void start() {
         while (true) {
-            mainMenu();
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-            switch(choice) {
+            try{
+                mainMenu();
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+                switch(choice) {
                 case 1:
                     postController.postStatus();
                     break;
@@ -34,12 +35,18 @@ public class View {
                 case 3:
                     postController.changeDraftStatus();
                     break;
+                case 4:
+                    postController.deletePostPrompt();
+                    break;
                 case 10:
                     System.out.println("Goodbye");
                     scanner.close();
                     System.exit(1);
                 default:
                     System.out.println("Please enter a choice between 1-10");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -52,6 +59,7 @@ public class View {
                 | 1. Post a status update   |
                 | 2. View all statuses      |
                 | 3. Change Draft Status    |
+                | 4. Delete Post            |
                 | 10. Exit                  |
                 +---------------------------+
                 """;
