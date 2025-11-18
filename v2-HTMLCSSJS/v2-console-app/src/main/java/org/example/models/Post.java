@@ -1,43 +1,52 @@
 package org.example.models;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
-
-// Data Class, other name: Entities, Models
-public class Post  extends Object {
+import java.util.List;
+// $$ ask about why array didnt import ^
+//Data Class, other names: Entities, Models
+/**
+ * Domain model representing a social media post.
+ *
+ * Key points:
+ * - Each Post has a unique id assigned from a static counter.
+ * - Newly created posts are drafts by default (isDraft = true).
+ * - Validation prevents blank status or username values.
+ */
+public class Post extends Object {
     // Field Variables
-    // These Variables are going to hold state data for the instance object
+    // These variables are going to hold state data for the instance object
     private long id;
     private String status;
     private String username;
     private boolean isDraft;
     private int likes;
     private int dislikes;
-    // Date(old system) or LocalDate(New System/ Java 8)
+    // Date(Old System) or LocalDate(New System/Java 8)
     //LocalDate, LocalDateTime, LocalTime
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private Comment[] comments;
+    private List<Comment> comments;
     private static long idCounter = 1;
-    // Default constructor
-    // Constructors are special methods to initialized instance objects during runtime
+    //Default Constructor
+    //Constructors are special methods to initialize instance objects during runtime
     public Post() {}
-    // Parameterized Constructor
+    //Parameterized Constructor
     public Post(String status, String username) {
-        if(status.isBlank()){
-            throw new IllegalArgumentException("Status can't be blank or empty!");
+        if(status.isBlank()) {
+            throw new IllegalArgumentException("Status cannot be blank or empty!");
         }
         if(username.isBlank())
-            throw new IllegalArgumentException("Username can't be black or empty!");
+            throw new IllegalArgumentException("Username cannot be blank or empty!");
         this.id = idCounter++;
         this.status = status;
         this.username = username;
         this.isDraft = true;
         this.likes = 0;
-        this.dislikes= 0;
+        this.dislikes = 0;
         this.createdAt = LocalDateTime.now();
-        this.comments = new Comment[10];
-
+        this.comments = new ArrayList<>();
     }
 
     public long getId() {
@@ -61,8 +70,8 @@ public class Post  extends Object {
     }
 
     public void setStatus(String status) {
-        if(status.isBlank()){
-            throw new IllegalArgumentException("Status can't be blank or empty!");
+        if(status.isBlank()) {
+            throw new IllegalArgumentException("Status cannot be blank or empty!");
         }
         this.status = status;
     }
@@ -73,7 +82,7 @@ public class Post  extends Object {
 
     public void setUsername(String username) {
         if(username.isBlank())
-            throw new IllegalArgumentException("Username can't be blank or empty!");
+            throw new IllegalArgumentException("Username cannot be blank or empty!");
         this.username = username;
     }
 
@@ -117,11 +126,11 @@ public class Post  extends Object {
         this.updatedAt = updatedAt;
     }
 
-    public Comment[] getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Comment[] comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 
@@ -129,11 +138,11 @@ public class Post  extends Object {
     public String toString() {
         return "Post{" +
                 "id=" + id +
-                ", comments=" + Arrays.toString(comments) +
-                ", dislikes=" + dislikes +
-                ", likes=" + likes +
-                ", username='" + username + '\'' +
                 ", status='" + status + '\'' +
+                ", username='" + username + '\'' +
+                ", likes=" + likes +
+                ", dislikes=" + dislikes +
+                ", comments=" + comments +
                 '}';
     }
 }
