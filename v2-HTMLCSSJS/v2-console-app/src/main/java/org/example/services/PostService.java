@@ -2,6 +2,7 @@ package org.example.services;
 
 import org.example.dtos.PostInformation;
 import org.example.dtos.PostNewPostRequest;
+import org.example.dtos.UpdatePostRequest;
 import org.example.exceptions.PostNotFoundException;
 import org.example.models.Post;
 import org.example.repositories.PostRepository;
@@ -60,7 +61,7 @@ public class PostService {
      */
     public boolean changeDraftStatus(long id) {
         Post post = postRepository.findAll().stream().filter(p -> p.getId() == id).findFirst().orElse(null);
-        if(post == null) return false;
+        if (post == null) return false;
         post.setDraft(false);
         return true;
     }
@@ -77,5 +78,13 @@ public class PostService {
         postRepository.findById(id).orElseThrow(() ->
                 new PostNotFoundException("Post with id of " + id + " not found!"));
         return postRepository.deleteById(id);
+    }
+
+    public PostInformation updatePost(UpdatePostRequest request) {
+        Post post = postRepository.findById(request.id()).orElseThrow(
+                () -> new PostNotFoundException("Post with id of "+ request.id() + " not found")
+        );
+        post.setStatus(request.status());
+        return PostMapper.toDto(post);
     }
 }
