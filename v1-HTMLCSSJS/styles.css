@@ -1,15 +1,18 @@
 body{
     display: flex;
     align-items: flex-end;
-    main{
-        margin-left: 20%;
-
-        @media screen and (max-width:860){
-            margin-left: 50%;
-        }
-    }
+    margin: 0;
 }
 
+main{
+    margin-left: 20%;
+
+}
+@media screen and (max-width:860px){
+    main{   
+        padding-left: 10%; 
+    }
+}
 .nav {
     position: fixed;
     top: 0;
@@ -29,32 +32,229 @@ body{
     text-decoration: none;
 }
 .nav li{
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
 }
+
+/* nav bar changes above */
 #status-form{
-    padding: 0 2rem;
+    padding:  2rem;
+    background-color: #86afd3;
+    border-radius: 8px;
+    margin-bottom: 2rem;
 }
 #status-form form {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 } 
-/* nav bar changes above */
 /* status post below */
 
 #status-text-box {
-    width: 50%;
+    width: 75%; /* ai suguest 100% orignal 50% play around to decide which*/
+}
 
-    input{ 
+#status-text-box label{
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#status-text-box input{ 
         width: 100%;
         height: 3rem;
+        padding: 0.5rem;
+        border: 1px solid rgb(8, 9, 13);
+        border-radius: 6px;
+        font-size: 1rem;
     }
 
-}
+
 /* user name submit*/
 #status-username-submit {
-    width: 50%;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+    margin-right: 4rem;
+}
+#status-username-submit div {
+    flex: 1;
+    
 
+}
+
+#status-username-submit label{
+    margin-left: 0.5rem;
+    font-weight: bold;
+
+}
+
+#status-username-submit input{
+    padding: 0.55rem;
+    border: 1px solid rgb(8, 9, 13);
+    border-radius: 8px;
+    margin-right: .2rem;
+    width: 20%;
+    min-width: 6rem;
+    height: 6px;
+}
+
+#status-username-submit button {
+    padding: 0.7rem 2rem;
+    background-color: rgb(81, 104, 118);
+    color: white;
+    border: rgb(76, 85, 100);
+    border-radius:  6px;
+    cursor: pointer;
+    font-size: .75rem;
+    font-weight:bold;
+    box-shadow: 3px 2px 4px rgb(42, 39, 55);
+    margin-left: 35%;
+    position: fixed;
+    
+}
+
+#status-username-submit button:hover{
+    background-color:rgb(182, 217, 237)
+}
+.post-container {
+    background-color: white;
+    border: 1px solid #9a9c9e; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 1.5rem; /* Inner spacing */
+    margin-bottom: 1.5rem; /* Space between posts */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+.post-content {
+    margin-bottom: 1rem; /* Space below content */
+}
+
+.post-username {
+    color: #002055; /* Dark blue */
+    font-size: 1.1rem; /* Slightly larger */
+    margin-bottom: 0.5rem;
+}
+
+.post-status {
+    color: #333; /* Dark gray for text */
+    line-height: 1.5; /* Space between lines */
+    margin-top: 0.5rem;
+}
+.post-actions {
+    display: flex;
+    gap: 1rem; /* Space between buttons */
+    margin-bottom: 1rem;
+}
+.delete-btn, .view-comments-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Hand pointer on hover */
+    font-size: 0.9rem;
+    transition: background-color 0.3s; /* Smooth color change */
+}
+
+.delete-btn {
+    background-color:rgb(162, 179, 189); /* Red */
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: rgb(162, 179, 189); /* Darker red on hover */
+}
+
+.view-comments-btn {
+    background-color: rgb(81, 104, 118); /* Blue */
+    color: white;
+}
+
+.view-comments-btn:hover {
+    background-color: rgb(162, 179, 189); /* Darker blue on hover */
+}
+.comments-section {
+    background-color: #f9f9f9; /* Very light gray */
+    border-top: 2px solid #ddd; /* Line at top */
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0 0 8px 8px; /* Only round bottom corners */
+}
+.add-comment-form {
+    display: flex;
+    gap: 0.5rem; /* Space between inputs */
+    margin-bottom: 1rem;
+    flex-wrap: wrap; /* Wrap to next line on small screens */
+}
+
+.comment-input {
+    flex: 1; /* Grow to fill space */
+    min-width: 150px; /* Don't get too small */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.add-comment-btn {
+    padding: 0.5rem 1rem;
+    background-color: rgb(81, 104, 118); /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.add-comment-btn:hover {
+    background-color: rgb(171, 194, 208); /* Darker green on hover */
+}
+.comments-list {
+    margin-top: 1rem;
+}
+
+.comment-item {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem; /* Space between comments */
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between; /* Username left, delete right */
+    align-items: center; /* Vertically centered */
+    margin-bottom: 0.5rem;
+}
+
+.comment-header strong {
+    color: #005db5; /* Blue username */
+    font-size: 0.95rem;
+}
+
+.delete-comment-btn {
+    padding: 0.3rem 0.7rem;
+    background-color: #dc3545; /* Red */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.delete-comment-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.comment-text {
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.no-comments {
+    color: #888; /* Gray */
+    font-style: italic;
+    text-align: center;
+    padding: 1rem;
 }
