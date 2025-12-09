@@ -6,12 +6,14 @@ import org.example.repositories.InMemoryPostRepository;
 import org.example.repositories.PostRepository;
 import org.example.services.PostService;
 import org.example.ui.View;
+import org.example.utils.DatabaseConnection;
 import org.example.utils.DependencyContainer;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class SocialMediaApp {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         DependencyContainer dependencyContainer = DependencyContainer.getINSTANCE();
 
         // Register a simple in-memory repository for storing posts
@@ -30,6 +32,11 @@ public class SocialMediaApp {
         dependencyContainer.setService("view", new View(
                 (PostController) dependencyContainer.getService("controller"),
                 (Scanner) dependencyContainer.getService("scanner")));
+
+        if (DatabaseConnection.getInstance().getConnection().isValid(5)){
+            System.out.println("DATABASE CONNECTED");
+        }
+
         ((View) dependencyContainer.getService("view")).start();
     }
 }
